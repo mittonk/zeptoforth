@@ -41,6 +41,9 @@ begin-module picocalc-term
     ili9341-text-spi import
   [then]
 
+  use-4x6-font? [if]
+    simple-font-4x6 import
+  [then]
   use-5x8-font? [if]
     simple-font-5x8 import
   [then]
@@ -86,6 +89,7 @@ begin-module picocalc-term
     :noname { self -- }
       self <picocalc-term-common>->new
 
+      [ use-4x6-font? ] [if] a-simple-font-4x6 [then]
       [ use-5x8-font? ] [if] a-simple-font-5x8 [then]
       [ use-5x8-v2-font? ] [if] a-simple-font-5x8-v2 [then]
       [ use-6x8-font? ] [if] a-simple-font-6x8 [then]
